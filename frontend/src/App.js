@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Authentication from "./pages/Authentication";
 import Dashboard from "./pages/Dashboard";
 import Logout from "./pages/Logout";
+import Update from "./pages/Update";
 
 import UseNav from "./components/UseNav";
 import Footer from "./components/Footer";
@@ -23,6 +24,7 @@ const App = () => {
             <Route path="/authentication" element={<Authentication />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/logout" element={<Logout />} />
+            <Route path="/update/:comp" element={<Update />} />
           </Routes>
           <Footer />
         </div>

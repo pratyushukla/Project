@@ -41,10 +41,8 @@ const Authentication = () => {
         setIsLoading(false);
         console.log("setUser");
         setUser({
+          ...response,
           isLoggedin: true,
-          userid: response._id,
-          name: response.name,
-          email: response.email,
         });
       }
     } catch (error) {
@@ -59,10 +57,25 @@ const Authentication = () => {
     setIsLoading(true);
     try {
       let newUser = {
-        name: event.target[0].value,
-        phone: event.target[1].value,
-        email: event.target[2].value,
-        password: event.target[3].value,
+        auth: {
+          email: event.target[2].value,
+          password: event.target[3].value,
+        },
+        profile: {
+          name: event.target[0].value,
+          phone: event.target[1].value,
+          email: event.target[2].value,
+          address: "",
+          description: "",
+        },
+        education: [],
+        projects: [],
+        skills: "",
+        experience: [],
+        achivements: [],
+        certificates: [],
+        languages: [],
+        interest: [],
       };
       // console.log(newStudent);
       let response = await fetch("http://localhost:5000/api/signup", {
@@ -73,18 +86,29 @@ const Authentication = () => {
       console.log(response);
       if (!!response.message) {
         throw new Error(response.message);
+      } else {
+        setUser({
+          ...response,
+          isLoggedin: true,
+        });
       }
     } catch (error) {
+      console.log(error);
+      setIsLoading(false);
       setError(error);
     }
-
-    setIsLoading(false);
   };
 
   const handleShow = () => {
     setError((prev) => !prev);
   };
-
+  const onValueChange = (evt) => {
+    const value = evt.target.value;
+    setUser({
+      ...user,
+      [evt.target.id.toLowerCase()]: value,
+    });
+  };
   return (
     <>
       {!!error && (
@@ -112,10 +136,11 @@ const Authentication = () => {
           <UseForm
             title="Login"
             inputs={[
-              ["Email", "email"],
-              ["Password", "password"],
+              { name: "Email", type: "email", value: user.email },
+              { name: "Password", type: "password" },
             ]}
             buttonName="Login"
+            onValueChange={onValueChange}
             handleSubmit={handleLogin}
           />
           <Button variant="info" onClick={() => setLoginMode(false)}>
@@ -127,12 +152,13 @@ const Authentication = () => {
           <UseForm
             title="Signup"
             inputs={[
-              ["Name", "text"],
-              ["Phone", "text"],
-              ["Email", "email"],
-              ["Password", "password"],
+              { name: "Name", type: "text", value: user.name },
+              { name: "Phone", type: "text", value: user.phone },
+              { name: "Email", type: "email", value: user.email },
+              { name: "Password", type: "password", value: null },
             ]}
             buttonName="Signup"
+            onValueChange={onValueChange}
             handleSubmit={handleSignup}
           />
           <Button variant="info" onClick={() => setLoginMode(true)}>

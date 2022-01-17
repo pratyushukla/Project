@@ -1,25 +1,41 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 
-const UseForm = ({ title, inputs, buttonName, handleSubmit }) => {
+const UseForm = ({
+  title,
+  inputs,
+  buttonName,
+  onValueChange,
+  handleSubmit,
+}) => {
   return (
     <div className="m-3">
       <h2 className="text-center">{title}</h2>
       <Form onSubmit={handleSubmit}>
-        {inputs.map((input) => (
-          <Form.Group className="mb-3" controlId={input[0]} key={input[0]}>
-            <Form.Label>{input[0]}</Form.Label>
-            {input[1] === "textarea" ? (
+        {inputs.map((input, index) => (
+          <Form.Group className="mb-3" controlId={input.name} key={index}>
+            <Form.Label>{input.name}</Form.Label>
+            {input.type === "textarea" && (
               <Form.Control
                 as="textarea"
                 rows={3}
-                placeholder={`Enter ${input[0]}`}
+                placeholder={`Enter ${input.name}`}
                 required
               />
-            ) : (
+            )}
+            {input.type === "password" && (
               <Form.Control
-                type={input[1]}
-                placeholder={`Enter ${input[0]}`}
+                type={input.type}
+                placeholder={`Enter ${input.name}`}
+                required
+              />
+            )}
+            {input.type !== "password" && input.type !== "textarea" && (
+              <Form.Control
+                type={input.type}
+                placeholder={`Enter ${input.name}`}
+                value={input.value}
+                onChange={onValueChange}
                 required
               />
             )}

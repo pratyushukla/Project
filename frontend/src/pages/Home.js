@@ -8,6 +8,7 @@ const Home = () => {
   const [user, setUser] = useContext(UserContext);
   const [isLoading, setIsLoading] = useState(false);
   const [jobs, setJobs] = useState([]);
+  const [skills, setSkills] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -34,13 +35,17 @@ const Home = () => {
       console.log("Error : " + error);
     }
   };
+  const onValueChange = (evt) => {
+    setSkills(evt.target.value);
+  };
   return (
     <>
       <div className="container">
         <UseForm
           title="Enter Skills"
-          inputs={[["skills", "text"]]}
+          inputs={[{ name: "Skills", type: "text", value: skills }]}
           buttonName="Submit"
+          onValueChange={onValueChange}
           handleSubmit={handleSkillSubmit}
         />
       </div>
@@ -59,13 +64,13 @@ const Home = () => {
           {/* <h1 className="text-center">Welcome {user.name}</h1> */}
           <h1 className="text-center">Recommended Job Profiles</h1>
           <div className="row">
-            {jobs.map((job) => (
+            {jobs.map((job, index) => (
               <Card
                 bg="secondary"
                 text="white"
                 className="mx-auto text-left my-2 p-3"
                 style={{ width: "40rem" }}
-                key={job}
+                key={index}
               >
                 <Card.Header></Card.Header>
                 <Card.Body>

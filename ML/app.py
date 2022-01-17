@@ -25,11 +25,8 @@ def hello():
     l=sorted(l, reverse=True)
     rec_jobs_idx=l[0:10]
     rec_jobs_list=[]
-
-
     for i in rec_jobs_idx:
         rec_jobs_list.append([new_df['jobtitle'][i[1]],new_df['skills'][i[1]]])
-
     response=jsonify(rec_jobs_list)
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response

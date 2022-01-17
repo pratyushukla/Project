@@ -4,9 +4,6 @@ export const UserContext = createContext();
 
 const initialState = {
   isLoggedin: false,
-  userid: "",
-  name: "",
-  email: "",
 };
 
 export const MyContext = ({ children }) => {

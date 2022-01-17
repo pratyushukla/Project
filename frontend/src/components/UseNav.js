@@ -9,7 +9,7 @@ const UseNav = () => {
     <>
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand className="me-auto">Ask Here</Navbar.Brand>
+          <Navbar.Brand className="me-auto">Online Portfolio</Navbar.Brand>
           <Nav>
             <Nav.Link as={Link} to="/">
               <Button className="btn btn-light mx-2">Home</Button>
