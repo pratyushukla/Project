@@ -13,13 +13,15 @@ const UseForm = ({
       <h2 className="text-center">{title}</h2>
       <Form onSubmit={handleSubmit}>
         {inputs.map((input, index) => (
-          <Form.Group className="mb-3" controlId={input.name} key={index}>
+          <Form.Group className="mb-3" controlId={input.id} key={index}>
             <Form.Label>{input.name}</Form.Label>
             {input.type === "textarea" && (
               <Form.Control
                 as="textarea"
                 rows={3}
+                value={input.value}
                 placeholder={`Enter ${input.name}`}
+                onChange={onValueChange || null}
                 required
               />
             )}
@@ -45,9 +47,11 @@ const UseForm = ({
           </Form.Group>
         ))}
 
-        <Button variant="primary" type="submit">
-          {buttonName}
-        </Button>
+        {buttonName && (
+          <Button variant="success" type="submit">
+            {buttonName}
+          </Button>
+        )}
       </Form>
     </div>
   );

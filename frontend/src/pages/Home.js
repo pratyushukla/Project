@@ -12,6 +12,18 @@ const Home = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
+  const renderPay = () => {
+    const script = document.createElement("script");
+    const PAY = document.getElementById("pay");
+    script.async = true;
+    script.setAttribute(
+      "src",
+      "https://checkout.razorpay.com/v1/payment-button.js"
+    );
+    script.setAttribute("data-payment_button_id", "pl_IrChGLpRjmdpj7");
+    PAY.replaceChildren(script);
+  };
+
   const handleSkillSubmit = async (event) => {
     event.preventDefault();
     const skill = event.target[0].value;
@@ -82,6 +94,8 @@ const Home = () => {
           </div>
         </div>
       )}
+      <button onClick={() => renderPay()}>click</button>
+      <form id="pay"></form>
     </>
   );
 };

@@ -7,7 +7,6 @@ import { UserContext } from "../UserContext";
 const Dashboard = () => {
   const [user, setUser] = useContext(UserContext);
   const [isLoading, setIsLoading] = useState(false);
-  const [isUpdate, setIsUpdate] = useState(false);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -62,6 +61,10 @@ const Dashboard = () => {
                   Email: {user.profile.email}
                   <br />
                   Phone: {user.profile.phone}
+                  <br />
+                  Address: {user.profile.address}
+                  <br />
+                  Description:{user.profile.description}
                 </Card.Text>
                 <Button onClick={() => navigate("/update/profile")}>
                   Update
@@ -120,7 +123,7 @@ const Dashboard = () => {
               <Card.Body>
                 <Card.Title className="text-limit">Skills</Card.Title>
                 <Card.Text>Skills:</Card.Text>
-                <Button onClick={() => navigate("/update/projects")}>
+                <Button onClick={() => navigate("/update/skills")}>
                   Update
                 </Button>
               </Card.Body>

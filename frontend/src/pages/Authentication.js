@@ -68,8 +68,8 @@ const Authentication = () => {
           address: "",
           description: "",
         },
-        education: [],
-        projects: [],
+        education: [{ course: "", institution: "", year: "", marks: "" }],
+        projects: [{ title: "", date: "", description: "" }],
         skills: "",
         experience: [],
         achivements: [],
@@ -103,11 +103,11 @@ const Authentication = () => {
     setError((prev) => !prev);
   };
   const onValueChange = (evt) => {
-    const value = evt.target.value;
-    setUser({
-      ...user,
-      [evt.target.id.toLowerCase()]: value,
-    });
+    // const value = evt.target.value;
+    // setUser({
+    //   ...user,
+    //   [evt.target.id.toLowerCase()]: value,
+    // });
   };
   return (
     <>
@@ -136,7 +136,7 @@ const Authentication = () => {
           <UseForm
             title="Login"
             inputs={[
-              { name: "Email", type: "email", value: user.email },
+              { name: "Email", type: "email" },
               { name: "Password", type: "password" },
             ]}
             buttonName="Login"

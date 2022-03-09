@@ -17,7 +17,7 @@ app.use((req, res, next) => {
 });
 
 const { userLogin, userSignup } = require("./routes/Auth.js");
-const { postQuery, postComment } = require("./routes/Post.js");
+const { updateUser, postComment } = require("./routes/Post.js");
 const {
   getQueries,
   getQueriesByUserID,
@@ -33,7 +33,7 @@ app.get("/", (req, res, next) => {
 
 app.post("/api/signup", userSignup);
 app.post("/api/login", userLogin);
-app.post("/api/postquery", postQuery);
+app.post("/api/update", updateUser);
 app.post("/api/postcomment", postComment);
 
 app.get("/api/queries", getQueries);
