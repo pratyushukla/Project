@@ -11,12 +11,12 @@ const UseNav = () => {
         <Container>
           <Navbar.Brand className="me-auto">Online Portfolio</Navbar.Brand>
           <Nav>
-            <Nav.Link as={Link} to="/">
+            {/* <Nav.Link as={Link} to="/">
               <Button className="btn btn-light mx-2">Home</Button>
-            </Nav.Link>
+            </Nav.Link> */}
 
             {!user.isLoggedin && (
-              <Nav.Link as={Link} to="/authentication">
+              <Nav.Link as={Link} to="/">
                 <Button className="btn btn-light mx-2">Authentication</Button>
               </Nav.Link>
             )}

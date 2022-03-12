@@ -152,10 +152,10 @@ const Authentication = () => {
           <UseForm
             title="Signup"
             inputs={[
-              { name: "Name", type: "text", value: user.name },
-              { name: "Phone", type: "text", value: user.phone },
-              { name: "Email", type: "email", value: user.email },
-              { name: "Password", type: "password", value: null },
+              { name: "Name", type: "text" },
+              { name: "Phone", type: "text" },
+              { name: "Email", type: "email" },
+              { name: "Password", type: "password" },
             ]}
             buttonName="Signup"
             onValueChange={onValueChange}

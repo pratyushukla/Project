@@ -20,8 +20,8 @@ const App = () => {
         <div className="App fulid-container">
           <UseNav />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/authentication" element={<Authentication />} />
+            {/* <Route path="/" element={<Home />} /> */}
+            <Route path="/" element={<Authentication />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/update/:comp" element={<Update />} />
