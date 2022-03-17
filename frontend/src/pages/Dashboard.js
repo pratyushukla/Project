@@ -3,12 +3,10 @@ import { Card, Spinner } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../UserContext";
 
-import RecommendedJobs from "../components/RecommendedJobs";
 import DisplayProfile from "../components/DisplayProfile";
 import DisplayEducation from "../components/DisplayEducation";
 import DisplayProjects from "../components/DisplayProjects";
 import DisplaySkills from "../components/DisplaySkills";
-import DisplayJobs from "../components/DisplayJobs";
 
 const Dashboard = () => {
   const [user, setUser] = useContext(UserContext);
@@ -24,7 +22,7 @@ const Dashboard = () => {
     };
     run();
     // return () => {};
-  }, []);
+  });
   // const handleShow = () => {
   //   setIsUpdate((prev) => !prev);
   // };
@@ -58,7 +56,7 @@ const Dashboard = () => {
             <DisplayEducation user={user} />
             <DisplayProjects user={user} />
             <DisplaySkills user={user} />
-            <DisplayJobs user={user} />
+            {/* <DisplayJobs user={user} /> */}
           </div>
         </div>
       )}

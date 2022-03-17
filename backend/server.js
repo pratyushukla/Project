@@ -17,13 +17,8 @@ app.use((req, res, next) => {
 });
 
 const { userLogin, userSignup } = require("./routes/Auth.js");
-const { updateUser, postComment } = require("./routes/Post.js");
-const {
-  getQueries,
-  getQueriesByUserID,
-  getQueryByID,
-  getCommentsByQuery,
-} = require("./routes/Get.js");
+const { updateUser } = require("./routes/Post.js");
+const { getUserByID } = require("./routes/Get.js");
 
 const options = { ordered: true };
 
@@ -34,12 +29,8 @@ app.get("/", (req, res, next) => {
 app.post("/api/signup", userSignup);
 app.post("/api/login", userLogin);
 app.post("/api/update", updateUser);
-app.post("/api/postcomment", postComment);
 
-app.get("/api/queries", getQueries);
-app.get("/api/queries/:userid", getQueriesByUserID);
-app.get("/api/query/:queryid", getQueryByID);
-app.get("/api/comments/:queryid", getCommentsByQuery);
+app.get("/api/user", getUserByID);
 
 app.use((error, req, res, next) => {
   if (res.headerSent) {

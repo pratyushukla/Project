@@ -25,6 +25,9 @@ const UseNav = () => {
                 <Nav.Link as={Link} to="/dashboard">
                   <Button className="btn btn-light mx-2">Dashboard</Button>
                 </Nav.Link>
+                <Nav.Link as={Link} to="/jobs">
+                  <Button className="btn btn-light mx-2">Jobs</Button>
+                </Nav.Link>
                 <Nav.Link as={Link} to="/logout">
                   <Button className="btn btn-light mx-2">Logout</Button>
                 </Nav.Link>

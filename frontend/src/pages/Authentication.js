@@ -57,26 +57,12 @@ const Authentication = () => {
     setIsLoading(true);
     try {
       let newUser = {
-        auth: {
-          email: event.target[2].value,
-          password: event.target[3].value,
-        },
-        profile: {
-          name: event.target[0].value,
-          phone: event.target[1].value,
-          email: event.target[2].value,
-          address: "",
-          description: "",
-        },
-        education: [{ course: "", institution: "", year: "", marks: "" }],
-        projects: [{ title: "", date: "", description: "" }],
-        skills: "",
-        experience: [],
-        achivements: [],
-        certificates: [],
-        languages: [],
-        interest: [],
+        email: event.target[2].value,
+        password: event.target[3].value,
+        name: event.target[0].value,
+        phone: event.target[1].value,
       };
+
       // console.log(newStudent);
       let response = await fetch("http://localhost:5000/api/signup", {
         method: "POST",

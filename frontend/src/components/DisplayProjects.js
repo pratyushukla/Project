@@ -8,7 +8,7 @@ const DisplayProjects = ({ user }) => {
     <Card
       bg="white"
       // text="primary"
-      className="mx-auto text-left my-2 p-3"
+      className="mx-auto text-left my-3 p-3 shadow"
       // style={{ width: "40rem" }}
     >
       <Card.Header>

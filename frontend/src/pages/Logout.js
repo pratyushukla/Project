@@ -8,7 +8,7 @@ const Logout = () => {
   const navigate = useNavigate();
   useEffect(() => {
     if (!user.isLoggedin) {
-      navigate("/authentication");
+      navigate("/");
     }
     return () => {};
   }, [user]);

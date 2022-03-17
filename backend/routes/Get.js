@@ -22,7 +22,7 @@ const getQueries = async (req, res, next) => {
   }
 };
 
-const getQueriesByUserID = async (req, res, next) => {
+const getUserByID = async (req, res, next) => {
   let result;
   try {
     await client.connect();
@@ -74,8 +74,5 @@ const getCommentsByQuery = async (req, res, next) => {
 };
 
 module.exports = {
-  getQueries,
-  getQueriesByUserID,
-  getQueryByID,
-  getCommentsByQuery,
+  getUserByID,
 };

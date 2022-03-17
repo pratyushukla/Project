@@ -12,6 +12,7 @@ import Update from "./pages/Update";
 
 import UseNav from "./components/UseNav";
 import Footer from "./components/Footer";
+import Jobs from "./pages/Jobs";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
             {/* <Route path="/" element={<Home />} /> */}
             <Route path="/" element={<Authentication />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/jobs" element={<Jobs />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/update/:comp" element={<Update />} />
           </Routes>
