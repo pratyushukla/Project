@@ -32,8 +32,8 @@ const Jobs = () => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ skills: user.skills }),
         }).then((res) => res.json());
-        setJobs(response);
         console.log(response);
+        setJobs(response);
         if (!!response.message) {
           throw new Error(response.message);
         }
