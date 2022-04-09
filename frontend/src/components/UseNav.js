@@ -7,7 +7,7 @@ const UseNav = () => {
   const [user, setUser] = useContext(UserContext);
   return (
     <>
-      <Navbar bg="dark" variant="dark">
+      <Navbar variant="dark" style={{ backgroundColor: "#14213d" }}>
         <Container>
           <Navbar.Brand className="me-auto">Online Portfolio</Navbar.Brand>
           <Nav>

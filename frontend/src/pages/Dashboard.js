@@ -50,7 +50,7 @@ const Dashboard = () => {
         </div>
       ) : (
         <div className="container">
-          <h2 className="text-center p-3">Welcome {user.profile.name}</h2>
+          <h2 className="text-center p-3">Welcome, {user.profile.name}!</h2>
           <div style={{ width: "70%", margin: "auto" }}>
             <DisplayProfile user={user} />
             <DisplayEducation user={user} />

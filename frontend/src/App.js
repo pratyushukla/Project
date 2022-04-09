@@ -18,7 +18,10 @@ const App = () => {
   return (
     <MyContext>
       <Router>
-        <div className="App fulid-container">
+        <div
+          className="App fulid-container"
+          style={{ backgroundColor: "#ade8f4" }}
+        >
           <UseNav />
           <Routes>
             {/* <Route path="/" element={<Home />} /> */}

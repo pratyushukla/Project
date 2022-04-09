@@ -86,14 +86,14 @@ def scrape():
         print("Scraping failed!")
         driver.close()
 
-scrape()
+# scrape()
 print("Scraping done!")
 driver.close()
 
 
 
 
-
+# _________________________________
 
 
 import pandas as pd
@@ -101,25 +101,25 @@ import textdistance
 
 new_df=pd.read_csv('job.csv')
 
-skills=new_df['skill']
+skill_col=new_df['skill']
 
 
 @app.route('/predict',methods=['POST','GET'])
 def getJobs():
     print(request.get_json())
-    skill=request.get_json()
-    skill=skill['skills']
-    skills2=[]
-    for i in skills:
-        skills2.append(str(i))
-    l=[]
-    for i in range(len(skills2)):
-        l.append([textdistance.jaccard(skills2[i] , skill),i])
-    l=sorted(l, reverse=True)
-    # print(l)
-    rec_jobs_idx=l[0:24]
-    rec_jobs_list=[]
-    for i in rec_jobs_idx:
+    req_data=request.get_json() #{'skills':'x,y,z'}
+    user_skill=req_data['skills']
+    skill_list=[]
+    for el in skill_col:
+        skill_list.append(str(el))
+    jaccard_score_list=[]
+    for i in range(len(skill_list)):
+        jaccard_score_list.append([textdistance.jaccard(user_skill, skill_list[i]),i])
+    jaccard_score_list=sorted(jaccard_score_list, reverse=True)
+    top_jobs=jaccard_score_list[0:24]
+    print(top_jobs)
+    response_list=[]
+    for i in top_jobs:
         temp={}
         temp['title']=new_df['job'][i[1]]
         temp['link']=new_df['link'][i[1]]
@@ -128,10 +128,10 @@ def getJobs():
         temp['experience']=new_df['experience'][i[1]]
         temp['location']=new_df['location'][i[1]]
         temp['salary']=new_df['salary'][i[1]]
-        rec_jobs_list.append(temp)
+        response_list.append(temp)
 
-    response=jsonify(rec_jobs_list)
-    print(rec_jobs_list)
+    response=jsonify(response_list)
+    # print(rec_jobs_list)
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 

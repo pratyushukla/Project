@@ -9,7 +9,7 @@ const DisplayProfile = ({ user }) => {
       bg="white"
       // text="primary"
       className="mx-auto text-left my-3 p-3 shadow"
-      // style={{ width: "40rem" }}
+      // style={{ backgroundColor: "#fefae0" }}
     >
       <Card.Header>
         <div className="d-flex justify-content-between">
