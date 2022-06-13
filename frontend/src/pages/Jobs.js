@@ -52,7 +52,7 @@ const Jobs = () => {
   };
   return (
     <>
-      <h1 className="text-center">Recommended Job Profiles</h1>
+      <h2 className="text-center text-danger">Recommended Job Profiles</h2>
       {!!error && (
         <UseModal
           show={!!error}
@@ -76,7 +76,7 @@ const Jobs = () => {
       ) : (
         <div className="container">
           {/* <h1 className="text-center">Welcome {user.name}</h1> */}
-          <div className="row">
+          <div className="row p-3 pb-5">
             {jobs.map((job, index) => (
               <>
                 <div className="col-lg-4 col-md-6 my-2">

@@ -22,7 +22,7 @@ const UseForm = ({
                 value={input.value}
                 placeholder={`Enter ${input.name}`}
                 onChange={onValueChange || null}
-                required
+      
               />
             )}
             {input.type === "password" && (

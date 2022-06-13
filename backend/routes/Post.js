@@ -10,7 +10,7 @@ const updateUser = async (req, res, next) => {
   let response;
   try {
     await client.connect();
-    const database = client.db("userDB");
+    const database = client.db("onlinePortfolioDB");
     const userData = database.collection("userData");
     isExist = await userData.findOne({
       "profile.email": email,

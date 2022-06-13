@@ -53,13 +53,13 @@ const UpdateProjects = ({ updateUser, setUpdateUser, onSubmit }) => {
                 },
                 {
                   name: "Date",
-                  type: "date",
+                  type: "month",
                   value: updateUser.projects[index].date,
                   id: `date${index}`,
                 },
                 {
                   name: "Description",
-                  type: "text",
+                  type: "textarea",
                   value: updateUser.projects[index].description,
                   id: `description${index}`,
                 },

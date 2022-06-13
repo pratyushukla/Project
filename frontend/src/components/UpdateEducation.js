@@ -66,7 +66,7 @@ const UpdateEducation = ({ updateUser, setUpdateUser, onSubmit }) => {
                 },
                 {
                   name: "Academic Year",
-                  type: "date",
+                  type: "text",
                   value: updateUser.education[index].year,
                   id: `year${index}`,
                 },

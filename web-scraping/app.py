@@ -4,6 +4,7 @@ from flask_cors import CORS
 from dotenv import load_dotenv
 from bs4 import BeautifulSoup
 from selenium import webdriver
+import chromedriver_binary
 import csv 
 
 

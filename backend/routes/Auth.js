@@ -14,7 +14,7 @@ const userSignup = async (req, res, next) => {
   let response;
   try {
     await client.connect();
-    const database = client.db("userDB");
+    const database = client.db("onlinePortfolioDB");
     const authData = database.collection("authData");
     const userData = database.collection("userData");
     isExist = await userData.findOne({
@@ -65,7 +65,7 @@ const userLogin = async (req, res, next) => {
   let response;
   try {
     await client.connect();
-    const database = client.db("userDB");
+    const database = client.db("onlinePortfolioDB");
     const authData = database.collection("authData");
     const userData = database.collection("userData");
     isExist = await authData.findOne({

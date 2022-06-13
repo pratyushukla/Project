@@ -8,7 +8,7 @@ const DisplayProjects = ({ user }) => {
     <Card
       bg="white"
       // text="primary"
-      className="mx-auto text-left my-3 p-3 shadow"
+      className="mx-auto text-left my-3 p-3 shadow h-100"
       // style={{ backgroundColor: "#fefae0" }}
     >
       <Card.Header>
@@ -20,14 +20,20 @@ const DisplayProjects = ({ user }) => {
         </div>
       </Card.Header>
       <Card.Body>
-        <Card.Title className="text-limit">
-          Title: {user.projects[0].title}
-        </Card.Title>
-        <Card.Text>
-          Date: {user.projects[0].date}
-          <br />
-          Description: {user.projects[0].description}
-        </Card.Text>
+        {user.projects.map((element, index) => {
+          return (
+            <>
+              <Card.Title className="text-limit">
+                Title: {user.projects[index].title}
+              </Card.Title>
+              <Card.Text>
+                Date: {user.projects[index].date}
+                <br />
+                Description: {user.projects[index].description}
+              </Card.Text>
+            </>
+          );
+        })}
       </Card.Body>
     </Card>
   );

@@ -8,7 +8,7 @@ const DisplayEducation = ({ user }) => {
     <Card
       bg="white"
       // text="primary"
-      className="mx-auto text-left my-3 p-3 shadow"
+      className="mx-auto text-left my-3 p-3 shadow h-100"
       // style={{ backgroundColor: "#fefae0" }}
     >
       <Card.Header>

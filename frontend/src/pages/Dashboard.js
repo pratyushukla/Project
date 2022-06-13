@@ -50,12 +50,21 @@ const Dashboard = () => {
         </div>
       ) : (
         <div className="container">
-          <h2 className="text-center p-3">Welcome, {user.profile.name}!</h2>
-          <div style={{ width: "70%", margin: "auto" }}>
-            <DisplayProfile user={user} />
-            <DisplayEducation user={user} />
-            <DisplayProjects user={user} />
-            <DisplaySkills user={user} />
+          <h2 className="text-center text-danger p-3">
+            Welcome, {user.profile.name}!
+          </h2>
+          <div className="row pb-5">
+            <div className="col-lg-4">
+              <DisplayProfile user={user} />
+              <DisplaySkills user={user} />
+            </div>
+            <div className="col-lg-4 pb-4">
+              <DisplayEducation user={user} />
+            </div>
+            <div className="col-lg-4 pb-4">
+              <DisplayProjects user={user} />
+            </div>
+
             {/* <DisplayJobs user={user} /> */}
           </div>
         </div>

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { MyContext } from "./UserContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import bgImage from "./bg-image.png";
 
 import Home from "./pages/Home";
 import Authentication from "./pages/Authentication";
@@ -20,7 +21,10 @@ const App = () => {
       <Router>
         <div
           className="App fulid-container"
-          style={{ backgroundColor: "#ade8f4" }}
+          style={{
+            backgroundImage: `url(${bgImage})`,
+          }}
+          // style={{ backgroundImage: "linear-gradient(#121f87, pink)" }}
         >
           <UseNav />
           <Routes>
